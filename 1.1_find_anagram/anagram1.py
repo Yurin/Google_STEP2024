@@ -19,7 +19,7 @@ def generate_possible_word(random_word, r=None):#generate_possible_word('a,b,c',
         return
     indices = list(range(n))
     cycles = list(range(n, n-r, -1))
-    yield ''.join(pool[i] for i in indices[:r])
+    yield ''.join(pool[i] for i in indices[:r]) #yieldは関数を一時的に実行停止させる
 
     while n:
         for i in reversed(range(r)):
@@ -52,6 +52,6 @@ with open("words.txt", "r") as file:
     words = file.read().splitlines()
 anagrams = solution(input_word, words)
 if isinstance(anagrams, list):
-    print("Anagrams found:", ", ".join(anagrams))
+    print("Anagrams found:", ", ".join(anagrams))#[Anagrams found anagram,anagram,anagram ...]
 else:
     print(anagrams)
